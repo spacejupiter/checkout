@@ -23,7 +23,19 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.header li{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+.header{
+    justify-content: center;
+    height:10vh;
+    display: block;
+    border-bottom: ;
+    background: white;
+    box-shadow: 5px 0px 5px grey;
+}
 .App-link {
   color: #61dafb;
 }
