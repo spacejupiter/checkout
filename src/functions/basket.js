@@ -6,3 +6,4 @@ const AddBasket=(item)=>{
     basket.push(item);
     return(basket.length());
 }
+export default AddBasket;

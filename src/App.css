@@ -17,6 +17,28 @@
     
     
 }
+.item-div{
+    border:1px solid gainsboro;
+    border-radius: 10px;
+    margin-top: 5vw;
+    height:30vh;
+    margin-left: 5vw;
+    background: transparent;
+    width:10vw;
+    padding:2vw;
+    text-align:center;
+    align-items:center;
+}
+.item-div:hover{
+    cursor: pointer;
+    background: gainsboro;
+}
+.products-container{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    text-align:  center;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
