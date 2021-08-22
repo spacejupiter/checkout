@@ -12,7 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.search-container{
+    justify-content: center;
+    
+    
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,7 +38,16 @@
     display: block;
     border-bottom: ;
     background: white;
-    box-shadow: 5px 0px 5px grey;
+    box-shadow: 0px 0px 3px grey;
+}
+.search-panel{
+    opacity:0.5;
+    margin-left:20vw;
+    width:50vw;
+    height:7vh;
+    border-radius: 10px;
+    margin-top:3vh;
+    background: gainsboro;
 }
 .App-link {
   color: #61dafb;
