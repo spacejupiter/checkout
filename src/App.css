@@ -17,6 +17,40 @@
     
     
 }
+.bag-amount{
+   display:absolute; 
+    border:1px solid transparent;
+    color:white;
+    background: red;
+    border-radius: 50%;
+    padding-left:0.8vh;
+    padding-right:0.8vh;
+    padding-bottom:0.2vh;
+    padding-top:0.2vh;
+    text-align: center;
+}
+.checkout{
+    border:1px solid gainsboro;
+    border-radius:4px;
+    margin-left: 46vw;
+    margin-top:6vh;
+    padding-left:4vw;
+    padding-right:5vw;
+    padding-bottom:0.7vw;
+    padding-top:0.7vw;
+}
+.checkout:hover{
+    cursor:pointer;
+}
+.ibag{
+    height:1.5em;
+}
+.bag{
+    margin-left: 80vw;
+    display: flex;
+    flex-direction: row;
+    float:left;
+}
 .item-div{
     border:1px solid gainsboro;
     border-radius: 10px;

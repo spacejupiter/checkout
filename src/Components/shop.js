@@ -7,29 +7,103 @@ import Products from './products';
 import Allproduct from '../functions/products';
 import '../App.css';
 import AddBasket from '../functions/basket';
-
-const Click=(id,e)=>{
- const index=Allproduct().findIndex(product=>{return product.id===id})  ; 
+import ItemList from './itemList';
+class Shopping extends React.Component{
+    constructor(props){
+        super();
+        this.state={
+        basket:[] ,
+        }
+    }
+    
+    Click=(id,e)=>{
+    let AddBasketItem=AddBasket;
+  
+    const index=Allproduct().findIndex(product=>{return product.id===id});
+    
     const newProduct=Object.assign([],Allproduct());
-    console.log(newProduct[index].price);
+    
+    let  AddedProducts={price:newProduct[index].price,name:newProduct[index].product_name}
+    this.setState({basket:AddBasketItem(AddedProducts)})
+  console.log  (this.state.basket);
+    
+    
 } 
-
-const  Allproducts=Allproduct().map((item,index)=>{
-   return ( <Products key={item.id} price={item.price} name={item.product_name} action={Click.bind(this,item.id)} />);
+     Allproducts=Allproduct().map((item,index)=>{
+    
+           return ( <Products key={item.id} price={item.price} 
+           name={item.product_name} action={this.Click.bind(this,item.id)} />);
 });
+
+Allitems= ()=>{
+    var  Allitems=0
+    if (this.state.length===0){
+        return Allitems;
+    }
+    else{
+        Allitems=this.state.basket.map((items)=>{
+           return (<ItemList price={"b"} name={"a"})  />
+        })
+    }
+                                       return Allitems;
+}
    
-
-
-
-function ShoppingPage(props){
-    return(
+Total=()=>{
+    var BTotal=0; //variable for the total price of b items
+    var NilTotal=0; // variable for total amount of items that != b or d
+    var Bcount=0// number of b items in the list
+    var Dcount=0;// numnber of d items in the list
+    var TotalAmount=0;// totaamount when discounts are added
+    var DTotal=0;//total amount of D items  in the  basket
+    var Bprice=15;
+    var Dprice=55;
+    if (this.state.basket.length===0){
+        return (0)
+      }
+    else{
+        
+      this.state.basket.forEach(item=>{
+      if(!(item.name==="B" || item.name ==="D")){
+         NilTotal=NilTotal+item.price;
+      }
+      else if(item.name==="B"){
+       Bcount=Bcount+1;  
+      }
+      else if(item.name==="D"){
+      Dcount=Dcount+1
+      }
+  }) }
+  BTotal=Math.floor(Bcount/2)*0.25*(Bcount*Bprice)+(Bcount%2*Bprice);// 25% discount
+  
+  DTotal=Math.floor(Dcount/3)*40 +(Dcount%3)*Dprice//discount of 40 for every multiple of item D
+    TotalAmount=NilTotal+BTotal+DTotal;
+return (TotalAmount);
+}
+ 
+    
+    render(){
+        return(
         <div className={"container-div"}>
-        <Header />
+        <Header amount={this.state.basket.length} />
         <Search />
-      <div className="products-container">  {Allproducts } </div>
+            <h1>{this.Total()}</h1>
+      <div className="products-container">  {this.Allproducts } </div>
+       <button className={"checkout"}> checkout</button>
+        <div className={'item-list-div'}>
+            
+            </div>
         </div>
     );
-    
-    
+     
+    }
 }
-export default ShoppingPage;
+
+
+
+
+
+ 
+
+
+
+export default Shopping;
