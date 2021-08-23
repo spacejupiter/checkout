@@ -17,6 +17,9 @@
     
     
 }
+.item-list-div{
+    background:red;
+}
 .bag-amount{
    display:absolute; 
     border:1px solid transparent;

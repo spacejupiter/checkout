@@ -38,12 +38,12 @@ class Shopping extends React.Component{
 Allitems= ()=>{
     if (this.state.basket===0){return 0;}
      else{
-   var  Allitems=this.state.basket.forEach(item=>{
+   var  Allitem=this.state.basket.forEach(item=>{
        return(<ItemList name={item.name} />) ;
    })
    
      }   
-   return Allitems;
+   return Allitem;
     }
    
 Total=()=>{
@@ -84,11 +84,12 @@ return (TotalAmount);
         <div className={"container-div"}>
         <Header amount={this.state.basket.length} />
         <Search />
-            <h1>{this.Total()}</h1>
+            <h1>Total Amount:{this.Total()}</h1>
       <div className="products-container">  {this.Allproducts } </div>
        <button className={"checkout"}> checkout</button>
         <div className={'item-list-div'}>
             
+            {}
             </div>
         </div>
     );
