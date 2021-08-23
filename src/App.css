@@ -18,7 +18,17 @@
     
 }
 .item-list-div{
-    background:red;
+    overflow-y: scroll;
+    border-radius:5px;
+    border:1px solid gainsboro;
+    max-height:30vh;
+    width:16vw;
+    background:gainsboro;
+    opacity:0.6;
+    position: absolute;
+    margin-top:-77vh;
+    margin-left: 80vw;;
+    padding-left: 1vw;
 }
 .bag-amount{
    display:absolute; 

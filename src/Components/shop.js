@@ -16,6 +16,17 @@ class Shopping extends React.Component{
         }
     }
     
+    Allitems= ()=>{
+    var All=[{name:"no item in your basket ",price:"price will display when an item is added"}];
+    if (this.state.basket.length===0){
+        return All;
+    }
+    else{
+        All=this.state.basket
+    }
+    return All;
+    }
+    
     Click=(id,e)=>{
     let AddBasketItem=AddBasket;
   
@@ -26,6 +37,7 @@ class Shopping extends React.Component{
     let  AddedProducts={price:newProduct[index].price,name:newProduct[index].product_name}
     this.setState({basket:AddBasketItem(AddedProducts)})
   console.log  (this.state.basket);
+        
     
     
 } 
@@ -35,16 +47,10 @@ class Shopping extends React.Component{
            name={item.product_name} action={this.Click.bind(this,item.id)} />);
 });
 
-Allitems= ()=>{
-    if (this.state.basket===0){return 0;}
-     else{
-   var  Allitem=this.state.basket.forEach(item=>{
-       return(<ItemList name={item.name} />) ;
-   })
-   
-     }   
-   return Allitem;
-    }
+//list of all the products added
+ListI=()=>this.Allitems().map((items)=>{
+    return(<ItemList  name={items.name} price={items.price}  total={this.Total()}/>)
+});
    
 Total=()=>{
     var BTotal=0; //variable for the total price of b items
@@ -89,7 +95,7 @@ return (TotalAmount);
        <button className={"checkout"}> checkout</button>
         <div className={'item-list-div'}>
             
-            {}
+           {this.ListI()}
             </div>
         </div>
     );
