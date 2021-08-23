@@ -36,17 +36,15 @@ class Shopping extends React.Component{
 });
 
 Allitems= ()=>{
-    var  Allitems=0
-    if (this.state.length===0){
-        return Allitems;
+    if (this.state.basket===0){return 0;}
+     else{
+   var  Allitems=this.state.basket.forEach(item=>{
+       return(<ItemList name={item.name} />) ;
+   })
+   
+     }   
+   return Allitems;
     }
-    else{
-        Allitems=this.state.basket.map((items)=>{
-           return (<ItemList price={"b"} name={"a"})  />
-        })
-    }
-                                       return Allitems;
-}
    
 Total=()=>{
     var BTotal=0; //variable for the total price of b items
